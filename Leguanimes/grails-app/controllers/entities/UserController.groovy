@@ -8,7 +8,20 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class UserController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", handlelogin: "POST"]
+	
+	def login = {
+		return
+	}
+	
+	def handlelogin(String username, String password){
+		def user = User.findByUsername(username)
+		if(user == null || user.password != password){
+			render(view:"login")
+		}
+		
+		redirect(action: "index")
+	}
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -34,14 +47,6 @@ class UserController {
             respond userInstance.errors, view:'create'
             return
         }
-		
-		userInstance.createdAt = new Date()
-		
-		if(!userInstance.active){
-			userInstance.removedAt = new Date()
-		}else{
-			userInstance.removedAt = null
-		}
 
         userInstance.save flush:true
 

@@ -35,14 +35,7 @@ class FansubController {
             return
         }
 		
-		fansubInstance.createdAt = new Date()
 		fansubInstance.createdBy = User.get(1)
-		
-		if(!fansubInstance.active){
-			fansubInstance.removedAt = new Date()
-		}else{
-			fansubInstance.removedAt = null
-		}
 
         fansubInstance.save flush:true
 

@@ -10,12 +10,3 @@
 	<g:textField name="name" required="" value="${producerInstance?.name}"/>
 
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: producerInstance, field: 'active', 'error')} ">
-	<label for="active">
-		<g:message code="producer.active.label" default="Active" />
-		
-	</label>
-	<g:checkBox name="active" value="${producerInstance?.active}" />
-
-</div>

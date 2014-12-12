@@ -46,12 +46,3 @@
 	<g:select name="episodes" from="${entities.Episode.list()}" multiple="multiple" optionKey="id" size="5" value="${storageInstance?.episodes*.id}" class="many-to-many"/>
 
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: storageInstance, field: 'active', 'error')} ">
-	<label for="active">
-		<g:message code="storage.active.label" default="Active" />
-		
-	</label>
-	<g:checkBox name="active" value="${storageInstance?.active}" />
-
-</div>

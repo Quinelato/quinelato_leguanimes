@@ -34,8 +34,7 @@ class GenderController {
 			respond genderInstance.errors, view:'create'
 			return
 		}
-
-		genderInstance.createdAt = new Date()
+		
 		genderInstance.createdBy = User.get(1)
 
 		genderInstance.save flush:true

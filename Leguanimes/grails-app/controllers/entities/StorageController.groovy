@@ -35,14 +35,7 @@ class StorageController {
             return
         }
 
-		storageInstance.createdAt = new Date()
 		storageInstance.createdBy = User.get(1)
-		
-		if(!storageInstance.active){
-			storageInstance.removedAt = new Date()
-		}else{
-			storageInstance.removedAt = null
-		}
 		
         storageInstance.save flush:true
 

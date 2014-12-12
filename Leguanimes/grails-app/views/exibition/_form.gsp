@@ -19,12 +19,3 @@
 	<g:textField name="description" value="${exibitionInstance?.description}"/>
 
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: exibitionInstance, field: 'active', 'error')} ">
-	<label for="active">
-		<g:message code="exibition.active.label" default="Active" />
-		
-	</label>
-	<g:checkBox name="active" value="${exibitionInstance?.active}" />
-
-</div>

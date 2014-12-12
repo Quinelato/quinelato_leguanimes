@@ -1,23 +1,6 @@
 <%@ page import="entities.User" %>
 
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
-	<label for="username">
-		<g:message code="user.username.label" default="Username" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="username" maxlength="20" required="" value="${userInstance?.username}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
-	<label for="password">
-		<g:message code="user.password.label" default="Password" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field type="password" name="password" maxlength="20" required="" value="${userInstance?.password}"/>
-
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'email', 'error')} required">
 	<label for="email">
@@ -61,6 +44,42 @@
 		
 	</label>
 	<g:textField name="avatar" value="${userInstance?.avatar}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
+	<label for="username">
+		<g:message code="user.username.label" default="Username" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="username" maxlength="20" required="" value="${userInstance?.username}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
+	<label for="password">
+		<g:message code="user.password.label" default="Password" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field type="password" name="password" maxlength="20" required="" value="${userInstance?.password}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'createdAt', 'error')} ">
+	<label for="createdAt">
+		<g:message code="user.createdAt.label" default="Created At" />
+		
+	</label>
+	<g:datePicker name="createdAt" precision="day"  value="${userInstance?.createdAt}" default="none" noSelection="['': '']" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'removedAt', 'error')} ">
+	<label for="removedAt">
+		<g:message code="user.removedAt.label" default="Removed At" />
+		
+	</label>
+	<g:datePicker name="removedAt" precision="day"  value="${userInstance?.removedAt}" default="none" noSelection="['': '']" />
 
 </div>
 

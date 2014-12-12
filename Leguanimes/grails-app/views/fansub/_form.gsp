@@ -19,12 +19,3 @@
 	<g:textField name="webAddress" value="${fansubInstance?.webAddress}"/>
 
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: fansubInstance, field: 'active', 'error')} ">
-	<label for="active">
-		<g:message code="fansub.active.label" default="Active" />
-		
-	</label>
-	<g:checkBox name="active" value="${fansubInstance?.active}" />
-
-</div>

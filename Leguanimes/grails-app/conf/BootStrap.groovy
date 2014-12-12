@@ -14,8 +14,8 @@ class BootStrap {
 				avatar: null,
 				username: "gustavquinelato",
 				password: "123456",
-				createdAt: new Date(),
-				active: true,
+				//createdAt: new Date(),
+				//active: true,
 				)
 		if(User.findAll().isEmpty()) {
 			user.save()
@@ -28,8 +28,8 @@ class BootStrap {
 			def gender = new Gender(
 					name: "Comédia",
 					description: "Comédia Clássica",
-					createdAt: new Date(),
-					active: true,
+					//createdAt: new Date(),
+					//active: true,
 					createdBy: user
 					)
 			if(Gender.findAll().isEmpty()) {
@@ -44,8 +44,8 @@ class BootStrap {
 			def fansub = new Fansub(
 					name: "Punch",
 					webAddress: "http://www.punch.com",
-					createdAt: new Date(),
-					active: true,
+					//createdAt: new Date(),
+					//active: true,
 					createdBy: user
 					)
 			if(Fansub.findAll().isEmpty()) {
@@ -59,8 +59,8 @@ class BootStrap {
 
 			def producer = new Producer(
 					name: "Tokyo TV",
-					createdAt: new Date(),
-					active: true,
+					//createdAt: new Date(),
+					//active: true,
 					createdBy: user
 					)
 			if(Producer.findAll().isEmpty()) {
@@ -75,8 +75,8 @@ class BootStrap {
 			def exibition = new Exibition(
 					type: "TV",
 					description: "Television",
-					createdAt: new Date(),
-					active: true,
+					//createdAt: new Date(),
+					//active: true,
 					createdBy: user
 					)
 			if(Exibition.findAll().isEmpty()) {
@@ -93,8 +93,8 @@ class BootStrap {
 					startDate: Date.parse("dd/MM/yyyy", "10/08/2000"),
 					ageRating: "17",
 					exibition: exibition,
-					createdAt: new Date(),
-					active: true,
+					//createdAt: new Date(),
+					//active: true,
 					createdBy: user
 					)
 			if(Anime.findAll().isEmpty()) {
@@ -111,8 +111,8 @@ class BootStrap {
 					band: "Banda 01",
 					webAddress: "http://www.youtube.com",
 					song: "Mary Go!",
-					createdAt: new Date(),
-					active: true,
+					//createdAt: new Date(),
+					//active: true,
 					createdBy: user
 					)
 			if(Opening.findAll().isEmpty()) {
@@ -129,8 +129,8 @@ class BootStrap {
 					band: "Banda 01",
 					webAddress: "http://www.youtube.com",
 					song: "Mary Goodbye!",
-					createdAt: new Date(),
-					active: true,
+					//createdAt: new Date(),
+					//active: true,
 					createdBy: user
 					)
 			if(Ending.findAll().isEmpty()) {

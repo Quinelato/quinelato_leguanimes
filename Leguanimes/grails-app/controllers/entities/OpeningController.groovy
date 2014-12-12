@@ -35,14 +35,7 @@ class OpeningController {
             return
         }
 
-		openingInstance.createdAt = new Date()
 		openingInstance.createdBy = User.get(1)
-		
-		if(!openingInstance.active){
-			openingInstance.removedAt = new Date()
-		}else{
-			openingInstance.removedAt = null
-		}
 		
         openingInstance.save flush:true
 

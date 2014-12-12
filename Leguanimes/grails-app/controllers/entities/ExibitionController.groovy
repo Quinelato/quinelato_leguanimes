@@ -35,14 +35,7 @@ class ExibitionController {
             return
         }
 		
-		exibitionInstance.createdAt = new Date()
 		exibitionInstance.createdBy = User.get(1)
-		
-		if(!exibitionInstance.active){
-			exibitionInstance.removedAt = new Date()
-		}else{
-			exibitionInstance.removedAt = null
-		}
 
         exibitionInstance.save flush:true
 

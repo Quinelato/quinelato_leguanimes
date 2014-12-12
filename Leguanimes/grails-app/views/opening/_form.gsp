@@ -55,12 +55,3 @@
 	<g:textField name="thumbnail" value="${openingInstance?.thumbnail}"/>
 
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'active', 'error')} ">
-	<label for="active">
-		<g:message code="opening.active.label" default="Active" />
-		
-	</label>
-	<g:checkBox name="active" value="${openingInstance?.active}" />
-
-</div>

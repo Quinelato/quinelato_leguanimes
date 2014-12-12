@@ -35,14 +35,7 @@ class EpisodeController {
             return
         }
 
-		episodeInstance.createdAt = new Date()
 		episodeInstance.createdBy = User.get(1)
-		
-		if(!episodeInstance.active){
-			episodeInstance.removedAt = new Date()
-		}else{
-			episodeInstance.removedAt = null
-		}
 		
         episodeInstance.save flush:true
 

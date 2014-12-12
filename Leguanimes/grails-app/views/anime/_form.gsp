@@ -118,13 +118,3 @@
 
 </div>
 
-
-<div class="fieldcontain ${hasErrors(bean: animeInstance, field: 'active', 'error')} ">
-	<label for="active">
-		<g:message code="anime.active.label" default="Active" />
-		
-	</label>
-	<g:checkBox name="active" value="${animeInstance?.active}" />
-
-</div>
-

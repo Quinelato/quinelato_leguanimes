@@ -18,12 +18,3 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: genderInstance, field: 'active', 'error')} ">
-	<label for="active">
-		<g:message code="gender.active.label" default="Active" />
-		
-	</label>
-	<g:checkBox name="active" value="${genderInstance?.active}" />
-
-</div>
-
