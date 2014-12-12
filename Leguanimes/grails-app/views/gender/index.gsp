@@ -28,13 +28,13 @@
 					
 						<g:sortableColumn property="description" title="${message(code: 'gender.description.label', default: 'Description')}" />
 					
-						<g:sortableColumn property="active" title="${message(code: 'gender.active.label', default: 'Active')}" />
-					
+						<th><g:message code="gender.createdBy.label" default="Created By" /></th>
+						
 						<g:sortableColumn property="createdAt" title="${message(code: 'gender.createdAt.label', default: 'Created At')}" />
 					
-						<th><g:message code="gender.createdby.label" default="Createdby" /></th>
-					
 						<g:sortableColumn property="removedAt" title="${message(code: 'gender.removedAt.label', default: 'Removed At')}" />
+						
+						<g:sortableColumn property="active" title="${message(code: 'gender.active.label', default: 'Active')}" />
 					
 					</tr>
 				</thead>
@@ -46,13 +46,13 @@
 					
 						<td>${fieldValue(bean: genderInstance, field: "description")}</td>
 					
-						<td><g:formatBoolean boolean="${genderInstance.active}" /></td>
+						<td>${fieldValue(bean: genderInstance, field: "createdBy")}</td>
 					
-						<td><g:formatDate date="${genderInstance.createdAt}" /></td>
-					
-						<td>${fieldValue(bean: genderInstance, field: "createdby")}</td>
-					
+						<td>${fieldValue(bean: genderInstance, field: "createdAt")}</td>
+						
 						<td><g:formatDate date="${genderInstance.removedAt}" /></td>
+					
+						<td><g:formatBoolean boolean="${genderInstance.active}" /></td>
 					
 					</tr>
 				</g:each>

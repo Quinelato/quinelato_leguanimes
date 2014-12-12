@@ -23,14 +23,14 @@
 			<table>
 			<thead>
 					<tr>
-					
+										
+						<g:sortableColumn property="title" title="${message(code: 'anime.title.label', default: 'Title')}" />
+						
 						<g:sortableColumn property="startDate" title="${message(code: 'anime.startDate.label', default: 'Start Date')}" />
 					
 						<g:sortableColumn property="endDate" title="${message(code: 'anime.endDate.label', default: 'End Date')}" />
 					
 						<g:sortableColumn property="ageRating" title="${message(code: 'anime.ageRating.label', default: 'Age Rating')}" />
-					
-						<g:sortableColumn property="title" title="${message(code: 'anime.title.label', default: 'Title')}" />
 					
 						<th><g:message code="anime.exibition.label" default="Exibition" /></th>
 					
@@ -41,14 +41,14 @@
 				<tbody>
 				<g:each in="${animeInstanceList}" status="i" var="animeInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+										
+						<td><g:link action="show" id="${animeInstance.id}">${fieldValue(bean: animeInstance, field: "title")}</g:link></td>
 					
-						<td><g:link action="show" id="${animeInstance.id}">${fieldValue(bean: animeInstance, field: "startDate")}</g:link></td>
+						<td>${fieldValue(bean: animeInstance, field: "startDate")}</td>
 					
 						<td><g:formatDate date="${animeInstance.endDate}" /></td>
 					
 						<td>${fieldValue(bean: animeInstance, field: "ageRating")}</td>
-					
-						<td>${fieldValue(bean: animeInstance, field: "title")}</td>
 					
 						<td>${fieldValue(bean: animeInstance, field: "exibition")}</td>
 					

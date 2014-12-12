@@ -30,4 +30,8 @@ class Episode extends BaseEntity{
 		title nullable:false, blank:false, minLength:3
 		codec nullable:true, blank:true
     }
+	
+	String toString(){
+		"${number}. ${title}"
+	}
 }

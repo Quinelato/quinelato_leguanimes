@@ -11,4 +11,7 @@ class Fansub extends BaseEntity{
 		name nullable:false, blank:false, minLength:3
 		webAddress nullable:true, blank:true
     }
+	String toString(){
+		"${name}"
+	}
 }

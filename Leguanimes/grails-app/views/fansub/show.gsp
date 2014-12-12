@@ -41,15 +41,15 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${fansubInstance?.active}">
+				<g:if test="${fansubInstance?.createdBy}">
 				<li class="fieldcontain">
-					<span id="active-label" class="property-label"><g:message code="fansub.active.label" default="Active" /></span>
+					<span id="createdBy-label" class="property-label"><g:message code="fansub.createdBy.label" default="Created By" /></span>
 					
-						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${fansubInstance?.active}" /></span>
+						<span class="property-value" aria-labelledby="createdBy-label"><g:link controller="user" action="show" id="${fansubInstance?.createdBy?.id}">${fansubInstance?.createdBy?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
-			
+				
 				<g:if test="${fansubInstance?.createdAt}">
 				<li class="fieldcontain">
 					<span id="createdAt-label" class="property-label"><g:message code="fansub.createdAt.label" default="Created At" /></span>
@@ -59,20 +59,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${fansubInstance?.createdby}">
-				<li class="fieldcontain">
-					<span id="createdby-label" class="property-label"><g:message code="fansub.createdby.label" default="Createdby" /></span>
-					
-						<span class="property-value" aria-labelledby="createdby-label"><g:link controller="user" action="show" id="${fansubInstance?.createdby?.id}">${fansubInstance?.createdby?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${fansubInstance?.removedAt}">
 				<li class="fieldcontain">
 					<span id="removedAt-label" class="property-label"><g:message code="fansub.removedAt.label" default="Removed At" /></span>
 					
 						<span class="property-value" aria-labelledby="removedAt-label"><g:formatDate date="${fansubInstance?.removedAt}" /></span>
+					
+				</li>
+				</g:if>
+				
+				<g:if test="${fansubInstance?.active}">
+				<li class="fieldcontain">
+					<span id="active-label" class="property-label"><g:message code="fansub.active.label" default="Active" /></span>
+					
+						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${fansubInstance?.active}" /></span>
 					
 				</li>
 				</g:if>

@@ -20,15 +20,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: storageInstance, field: 'burnDate', 'error')} ">
-	<label for="burnDate">
-		<g:message code="storage.burnDate.label" default="Burn Date" />
-		
-	</label>
-	<g:datePicker name="burnDate" precision="day"  value="${storageInstance?.burnDate}" default="none" noSelection="['': '']" />
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: storageInstance, field: 'number', 'error')} required">
 	<label for="number">
 		<g:message code="storage.number.label" default="Number" />
@@ -38,30 +29,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: storageInstance, field: 'active', 'error')} ">
-	<label for="active">
-		<g:message code="storage.active.label" default="Active" />
+<div class="fieldcontain ${hasErrors(bean: storageInstance, field: 'burnDate', 'error')} ">
+	<label for="burnDate">
+		<g:message code="storage.burnDate.label" default="Burn Date" />
 		
 	</label>
-	<g:checkBox name="active" value="${storageInstance?.active}" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: storageInstance, field: 'createdAt', 'error')} required">
-	<label for="createdAt">
-		<g:message code="storage.createdAt.label" default="Created At" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="createdAt" precision="day"  value="${storageInstance?.createdAt}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: storageInstance, field: 'createdby', 'error')} required">
-	<label for="createdby">
-		<g:message code="storage.createdby.label" default="Createdby" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="createdby" name="createdby.id" from="${entities.User.list()}" optionKey="id" required="" value="${storageInstance?.createdby?.id}" class="many-to-one"/>
+	<g:datePicker name="burnDate" precision="day"  value="${storageInstance?.burnDate}" default="none" noSelection="['': '']" />
 
 </div>
 
@@ -74,12 +47,11 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: storageInstance, field: 'removedAt', 'error')} required">
-	<label for="removedAt">
-		<g:message code="storage.removedAt.label" default="Removed At" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: storageInstance, field: 'active', 'error')} ">
+	<label for="active">
+		<g:message code="storage.active.label" default="Active" />
+		
 	</label>
-	<g:datePicker name="removedAt" precision="day"  value="${storageInstance?.removedAt}"  />
+	<g:checkBox name="active" value="${storageInstance?.active}" />
 
 </div>
-

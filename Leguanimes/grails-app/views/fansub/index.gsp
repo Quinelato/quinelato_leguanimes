@@ -28,13 +28,13 @@
 					
 						<g:sortableColumn property="webAddress" title="${message(code: 'fansub.webAddress.label', default: 'Web Address')}" />
 					
-						<g:sortableColumn property="active" title="${message(code: 'fansub.active.label', default: 'Active')}" />
-					
+						<th><g:message code="fansub.createdBy.label" default="Created By" /></th>
+											
 						<g:sortableColumn property="createdAt" title="${message(code: 'fansub.createdAt.label', default: 'Created At')}" />
 					
-						<th><g:message code="fansub.createdby.label" default="Createdby" /></th>
-					
 						<g:sortableColumn property="removedAt" title="${message(code: 'fansub.removedAt.label', default: 'Removed At')}" />
+						
+						<g:sortableColumn property="active" title="${message(code: 'fansub.active.label', default: 'Active')}" />
 					
 					</tr>
 				</thead>
@@ -44,15 +44,15 @@
 					
 						<td><g:link action="show" id="${fansubInstance.id}">${fieldValue(bean: fansubInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: fansubInstance, field: "webAddress")}</td>
+						<td><a href="${fieldValue(bean: fansubInstance, field: "webAddress")}">${fieldValue(bean: fansubInstance, field: "webAddress")}</a></td>
 					
-						<td><g:formatBoolean boolean="${fansubInstance.active}" /></td>
-					
+						<td>${fieldValue(bean: fansubInstance, field: "createdBy")}</td>
+											
 						<td><g:formatDate date="${fansubInstance.createdAt}" /></td>
 					
-						<td>${fieldValue(bean: fansubInstance, field: "createdby")}</td>
-					
 						<td><g:formatDate date="${fansubInstance.removedAt}" /></td>
+						
+						<td><g:formatBoolean boolean="${fansubInstance.active}" /></td>
 					
 					</tr>
 				</g:each>

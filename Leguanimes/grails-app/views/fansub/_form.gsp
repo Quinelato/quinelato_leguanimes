@@ -28,31 +28,3 @@
 	<g:checkBox name="active" value="${fansubInstance?.active}" />
 
 </div>
-
-<div class="fieldcontain ${hasErrors(bean: fansubInstance, field: 'createdAt', 'error')} required">
-	<label for="createdAt">
-		<g:message code="fansub.createdAt.label" default="Created At" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="createdAt" precision="day"  value="${fansubInstance?.createdAt}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: fansubInstance, field: 'createdby', 'error')} required">
-	<label for="createdby">
-		<g:message code="fansub.createdby.label" default="Createdby" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="createdby" name="createdby.id" from="${entities.User.list()}" optionKey="id" required="" value="${fansubInstance?.createdby?.id}" class="many-to-one"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: fansubInstance, field: 'removedAt', 'error')} required">
-	<label for="removedAt">
-		<g:message code="fansub.removedAt.label" default="Removed At" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="removedAt" precision="day"  value="${fansubInstance?.removedAt}"  />
-
-</div>
-

@@ -9,4 +9,8 @@ class Producer extends BaseEntity{
     static constraints = {
 		name nullable:false, blank:false
     }
+	
+	String toString(){
+		"${name}"
+	}
 }

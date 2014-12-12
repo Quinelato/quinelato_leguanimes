@@ -35,6 +35,15 @@ class AnimeController {
             return
         }
 
+		animeInstance.createdAt = new Date()
+		animeInstance.createdBy = User.get(1)
+		
+		if(!animeInstance.active){
+			animeInstance.removedAt = new Date()
+		}else{
+			animeInstance.removedAt = null
+		}
+		
         animeInstance.save flush:true
 
         request.withFormat {

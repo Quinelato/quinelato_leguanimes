@@ -22,12 +22,21 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list ending">
-			
+				
 				<g:if test="${endingInstance?.anime}">
 				<li class="fieldcontain">
 					<span id="anime-label" class="property-label"><g:message code="ending.anime.label" default="Anime" /></span>
 					
 						<span class="property-value" aria-labelledby="anime-label"><g:link controller="anime" action="show" id="${endingInstance?.anime?.id}">${endingInstance?.anime?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+				
+				<g:if test="${endingInstance?.number}">
+				<li class="fieldcontain">
+					<span id="number-label" class="property-label"><g:message code="ending.number.label" default="Number" /></span>
+					
+						<span class="property-value" aria-labelledby="number-label"><g:fieldValue bean="${endingInstance}" field="number"/></span>
 					
 				</li>
 				</g:if>
@@ -37,6 +46,15 @@
 					<span id="band-label" class="property-label"><g:message code="ending.band.label" default="Band" /></span>
 					
 						<span class="property-value" aria-labelledby="band-label"><g:fieldValue bean="${endingInstance}" field="band"/></span>
+					
+				</li>
+				</g:if>
+							
+				<g:if test="${endingInstance?.song}">
+				<li class="fieldcontain">
+					<span id="song-label" class="property-label"><g:message code="ending.song.label" default="Song" /></span>
+					
+						<span class="property-value" aria-labelledby="song-label"><g:fieldValue bean="${endingInstance}" field="song"/></span>
 					
 				</li>
 				</g:if>
@@ -50,15 +68,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${endingInstance?.song}">
-				<li class="fieldcontain">
-					<span id="song-label" class="property-label"><g:message code="ending.song.label" default="Song" /></span>
-					
-						<span class="property-value" aria-labelledby="song-label"><g:fieldValue bean="${endingInstance}" field="song"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${endingInstance?.thumbnail}">
 				<li class="fieldcontain">
 					<span id="thumbnail-label" class="property-label"><g:message code="ending.thumbnail.label" default="Thumbnail" /></span>
@@ -68,24 +77,15 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${endingInstance?.number}">
+				<g:if test="${endingInstance?.createdBy}">
 				<li class="fieldcontain">
-					<span id="number-label" class="property-label"><g:message code="ending.number.label" default="Number" /></span>
+					<span id="createdBy-label" class="property-label"><g:message code="ending.createdBy.label" default="Created By" /></span>
 					
-						<span class="property-value" aria-labelledby="number-label"><g:fieldValue bean="${endingInstance}" field="number"/></span>
+						<span class="property-value" aria-labelledby="createdBy-label"><g:link controller="user" action="show" id="${endingInstance?.createdBy?.id}">${endingInstance?.createdBy?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${endingInstance?.active}">
-				<li class="fieldcontain">
-					<span id="active-label" class="property-label"><g:message code="ending.active.label" default="Active" /></span>
-					
-						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${endingInstance?.active}" /></span>
-					
-				</li>
-				</g:if>
-			
+							
 				<g:if test="${endingInstance?.createdAt}">
 				<li class="fieldcontain">
 					<span id="createdAt-label" class="property-label"><g:message code="ending.createdAt.label" default="Created At" /></span>
@@ -95,20 +95,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${endingInstance?.createdby}">
-				<li class="fieldcontain">
-					<span id="createdby-label" class="property-label"><g:message code="ending.createdby.label" default="Createdby" /></span>
-					
-						<span class="property-value" aria-labelledby="createdby-label"><g:link controller="user" action="show" id="${endingInstance?.createdby?.id}">${endingInstance?.createdby?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${endingInstance?.removedAt}">
 				<li class="fieldcontain">
 					<span id="removedAt-label" class="property-label"><g:message code="ending.removedAt.label" default="Removed At" /></span>
 					
 						<span class="property-value" aria-labelledby="removedAt-label"><g:formatDate date="${endingInstance?.removedAt}" /></span>
+					
+				</li>
+				</g:if>
+							
+				<g:if test="${endingInstance?.active}">
+				<li class="fieldcontain">
+					<span id="active-label" class="property-label"><g:message code="ending.active.label" default="Active" /></span>
+					
+						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${endingInstance?.active}" /></span>
 					
 				</li>
 				</g:if>

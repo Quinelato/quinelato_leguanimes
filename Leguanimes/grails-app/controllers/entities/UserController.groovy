@@ -34,6 +34,14 @@ class UserController {
             respond userInstance.errors, view:'create'
             return
         }
+		
+		userInstance.createdAt = new Date()
+		
+		if(!userInstance.active){
+			userInstance.removedAt = new Date()
+		}else{
+			userInstance.removedAt = null
+		}
 
         userInstance.save flush:true
 

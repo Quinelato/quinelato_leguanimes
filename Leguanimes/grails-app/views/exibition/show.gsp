@@ -40,12 +40,12 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${exibitionInstance?.active}">
+							
+				<g:if test="${exibitionInstance?.createdBy}">
 				<li class="fieldcontain">
-					<span id="active-label" class="property-label"><g:message code="exibition.active.label" default="Active" /></span>
+					<span id="createdBy-label" class="property-label"><g:message code="exibition.createdBy.label" default="Created By" /></span>
 					
-						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${exibitionInstance?.active}" /></span>
+						<span class="property-value" aria-labelledby="createdBy-label"><g:link controller="user" action="show" id="${exibitionInstance?.createdBy?.id}">${exibitionInstance?.createdBy?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -59,20 +59,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${exibitionInstance?.createdby}">
-				<li class="fieldcontain">
-					<span id="createdby-label" class="property-label"><g:message code="exibition.createdby.label" default="Createdby" /></span>
-					
-						<span class="property-value" aria-labelledby="createdby-label"><g:link controller="user" action="show" id="${exibitionInstance?.createdby?.id}">${exibitionInstance?.createdby?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${exibitionInstance?.removedAt}">
 				<li class="fieldcontain">
 					<span id="removedAt-label" class="property-label"><g:message code="exibition.removedAt.label" default="Removed At" /></span>
 					
 						<span class="property-value" aria-labelledby="removedAt-label"><g:formatDate date="${exibitionInstance?.removedAt}" /></span>
+					
+				</li>
+				</g:if>
+							
+				<g:if test="${exibitionInstance?.active}">
+				<li class="fieldcontain">
+					<span id="active-label" class="property-label"><g:message code="exibition.active.label" default="Active" /></span>
+					
+						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${exibitionInstance?.active}" /></span>
 					
 				</li>
 				</g:if>

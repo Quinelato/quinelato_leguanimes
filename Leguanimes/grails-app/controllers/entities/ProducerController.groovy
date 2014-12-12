@@ -35,6 +35,15 @@ class ProducerController {
             return
         }
 
+		producerInstance.createdAt = new Date()
+		producerInstance.createdBy = User.get(1)
+		
+		if(!producerInstance.active){
+			producerInstance.removedAt = new Date()
+		}else{
+			producerInstance.removedAt = null
+		}
+		
         producerInstance.save flush:true
 
         request.withFormat {

@@ -31,6 +31,24 @@
 					
 				</li>
 				</g:if>
+							
+				<g:if test="${episodeInstance?.number}">
+				<li class="fieldcontain">
+					<span id="number-label" class="property-label"><g:message code="episode.number.label" default="Number" /></span>
+					
+						<span class="property-value" aria-labelledby="number-label"><g:fieldValue bean="${episodeInstance}" field="number"/></span>
+					
+				</li>
+				</g:if>
+							
+				<g:if test="${episodeInstance?.title}">
+				<li class="fieldcontain">
+					<span id="title-label" class="property-label"><g:message code="episode.title.label" default="Title" /></span>
+					
+						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${episodeInstance}" field="title"/></span>
+					
+				</li>
+				</g:if>
 			
 				<g:if test="${episodeInstance?.duration}">
 				<li class="fieldcontain">
@@ -49,30 +67,21 @@
 					
 				</li>
 				</g:if>
+							
+				<g:if test="${episodeInstance?.width}">
+				<li class="fieldcontain">
+					<span id="width-label" class="property-label"><g:message code="episode.width.label" default="Width" /></span>
+					
+						<span class="property-value" aria-labelledby="width-label"><g:fieldValue bean="${episodeInstance}" field="width"/></span>
+					
+				</li>
+				</g:if>
 			
 				<g:if test="${episodeInstance?.heigh}">
 				<li class="fieldcontain">
 					<span id="heigh-label" class="property-label"><g:message code="episode.heigh.label" default="Heigh" /></span>
 					
 						<span class="property-value" aria-labelledby="heigh-label"><g:fieldValue bean="${episodeInstance}" field="heigh"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${episodeInstance?.number}">
-				<li class="fieldcontain">
-					<span id="number-label" class="property-label"><g:message code="episode.number.label" default="Number" /></span>
-					
-						<span class="property-value" aria-labelledby="number-label"><g:fieldValue bean="${episodeInstance}" field="number"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${episodeInstance?.width}">
-				<li class="fieldcontain">
-					<span id="width-label" class="property-label"><g:message code="episode.width.label" default="Width" /></span>
-					
-						<span class="property-value" aria-labelledby="width-label"><g:fieldValue bean="${episodeInstance}" field="width"/></span>
 					
 				</li>
 				</g:if>
@@ -95,15 +104,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${episodeInstance?.title}">
-				<li class="fieldcontain">
-					<span id="title-label" class="property-label"><g:message code="episode.title.label" default="Title" /></span>
-					
-						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${episodeInstance}" field="title"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${episodeInstance?.codec}">
 				<li class="fieldcontain">
 					<span id="codec-label" class="property-label"><g:message code="episode.codec.label" default="Codec" /></span>
@@ -112,12 +112,23 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${episodeInstance?.active}">
+							
+				<g:if test="${episodeInstance?.storages}">
 				<li class="fieldcontain">
-					<span id="active-label" class="property-label"><g:message code="episode.active.label" default="Active" /></span>
+					<span id="storages-label" class="property-label"><g:message code="episode.storages.label" default="Storages" /></span>
 					
-						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${episodeInstance?.active}" /></span>
+						<g:each in="${episodeInstance.storages}" var="s">
+						<span class="property-value" aria-labelledby="storages-label"><g:link controller="storage" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+							
+				<g:if test="${episodeInstance?.createdBy}">
+				<li class="fieldcontain">
+					<span id="createdBy-label" class="property-label"><g:message code="episode.createdBy.label" default="Created By" /></span>
+					
+						<span class="property-value" aria-labelledby="createdBy-label"><g:link controller="user" action="show" id="${episodeInstance?.createdBy?.id}">${episodeInstance?.createdBy?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -130,16 +141,7 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${episodeInstance?.createdby}">
-				<li class="fieldcontain">
-					<span id="createdby-label" class="property-label"><g:message code="episode.createdby.label" default="Createdby" /></span>
-					
-						<span class="property-value" aria-labelledby="createdby-label"><g:link controller="user" action="show" id="${episodeInstance?.createdby?.id}">${episodeInstance?.createdby?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
+
 				<g:if test="${episodeInstance?.removedAt}">
 				<li class="fieldcontain">
 					<span id="removedAt-label" class="property-label"><g:message code="episode.removedAt.label" default="Removed At" /></span>
@@ -148,14 +150,12 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${episodeInstance?.storages}">
+							
+				<g:if test="${episodeInstance?.active}">
 				<li class="fieldcontain">
-					<span id="storages-label" class="property-label"><g:message code="episode.storages.label" default="Storages" /></span>
+					<span id="active-label" class="property-label"><g:message code="episode.active.label" default="Active" /></span>
 					
-						<g:each in="${episodeInstance.storages}" var="s">
-						<span class="property-value" aria-labelledby="storages-label"><g:link controller="storage" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
-						</g:each>
+						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${episodeInstance?.active}" /></span>
 					
 				</li>
 				</g:if>

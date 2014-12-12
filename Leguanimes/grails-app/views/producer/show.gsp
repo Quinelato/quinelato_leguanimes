@@ -31,12 +31,12 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${producerInstance?.active}">
+							
+				<g:if test="${producerInstance?.createdBy}">
 				<li class="fieldcontain">
-					<span id="active-label" class="property-label"><g:message code="producer.active.label" default="Active" /></span>
+					<span id="createdBy-label" class="property-label"><g:message code="producer.createdBy.label" default="Created By" /></span>
 					
-						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${producerInstance?.active}" /></span>
+						<span class="property-value" aria-labelledby="createdBy-label"><g:link controller="user" action="show" id="${producerInstance?.createdBy?.id}">${producerInstance?.createdBy?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -50,20 +50,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${producerInstance?.createdby}">
-				<li class="fieldcontain">
-					<span id="createdby-label" class="property-label"><g:message code="producer.createdby.label" default="Createdby" /></span>
-					
-						<span class="property-value" aria-labelledby="createdby-label"><g:link controller="user" action="show" id="${producerInstance?.createdby?.id}">${producerInstance?.createdby?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${producerInstance?.removedAt}">
 				<li class="fieldcontain">
 					<span id="removedAt-label" class="property-label"><g:message code="producer.removedAt.label" default="Removed At" /></span>
 					
 						<span class="property-value" aria-labelledby="removedAt-label"><g:formatDate date="${producerInstance?.removedAt}" /></span>
+					
+				</li>
+				</g:if>
+				
+				<g:if test="${producerInstance?.active}">
+				<li class="fieldcontain">
+					<span id="active-label" class="property-label"><g:message code="producer.active.label" default="Active" /></span>
+					
+						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${producerInstance?.active}" /></span>
 					
 				</li>
 				</g:if>

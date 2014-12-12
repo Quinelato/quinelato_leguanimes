@@ -25,14 +25,14 @@
 					<tr>
 					
 						<g:sortableColumn property="name" title="${message(code: 'producer.name.label', default: 'Name')}" />
-					
-						<g:sortableColumn property="active" title="${message(code: 'producer.active.label', default: 'Active')}" />
+						
+						<th><g:message code="producer.createdBy.label" default="Created By" /></th>
 					
 						<g:sortableColumn property="createdAt" title="${message(code: 'producer.createdAt.label', default: 'Created At')}" />
 					
-						<th><g:message code="producer.createdby.label" default="Createdby" /></th>
-					
 						<g:sortableColumn property="removedAt" title="${message(code: 'producer.removedAt.label', default: 'Removed At')}" />
+											
+						<g:sortableColumn property="active" title="${message(code: 'producer.active.label', default: 'Active')}" />
 					
 					</tr>
 				</thead>
@@ -41,14 +41,14 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${producerInstance.id}">${fieldValue(bean: producerInstance, field: "name")}</g:link></td>
-					
-						<td><g:formatBoolean boolean="${producerInstance.active}" /></td>
-					
+										
+						<td>${fieldValue(bean: producerInstance, field: "createdBy")}</td>
+						
 						<td><g:formatDate date="${producerInstance.createdAt}" /></td>
 					
-						<td>${fieldValue(bean: producerInstance, field: "createdby")}</td>
-					
 						<td><g:formatDate date="${producerInstance.removedAt}" /></td>
+											
+						<td><g:formatBoolean boolean="${producerInstance.active}" /></td>
 					
 					</tr>
 				</g:each>

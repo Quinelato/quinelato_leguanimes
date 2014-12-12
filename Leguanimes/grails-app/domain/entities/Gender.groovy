@@ -11,4 +11,8 @@ class Gender extends BaseEntity{
 		name nullable:false, blank:false, minLength:3
 		description nullable:true, blank:true
     }
+	
+	String toString(){
+		"${name}"
+	}
 }

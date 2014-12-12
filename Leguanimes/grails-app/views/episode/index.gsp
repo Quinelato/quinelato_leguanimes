@@ -25,7 +25,9 @@
 					<tr>
 					
 						<th><g:message code="episode.anime.label" default="Anime" /></th>
-					
+										
+						<g:sortableColumn property="duration" title="${message(code: 'episode.number.label', default: 'Number')}" />
+						
 						<g:sortableColumn property="duration" title="${message(code: 'episode.duration.label', default: 'Duration')}" />
 					
 						<g:sortableColumn property="size" title="${message(code: 'episode.size.label', default: 'Size')}" />
@@ -42,8 +44,10 @@
 				<g:each in="${episodeInstanceList}" status="i" var="episodeInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${episodeInstance.id}">${fieldValue(bean: episodeInstance, field: "anime")}</g:link></td>
-					
+						<td><g:link action="show" controller="anime" id="${episodeInstance.anime.id}">${fieldValue(bean: episodeInstance, field: "anime")}</g:link></td>					
+										
+						<td><g:link action="show" id="${episodeInstance.id}">${fieldValue(bean: episodeInstance, field: "number")}</g:link></td>
+						
 						<td>${fieldValue(bean: episodeInstance, field: "duration")}</td>
 					
 						<td>${fieldValue(bean: episodeInstance, field: "size")}</td>

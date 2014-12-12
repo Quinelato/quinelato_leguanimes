@@ -25,16 +25,16 @@
 					<tr>
 					
 						<th><g:message code="opening.anime.label" default="Anime" /></th>
+											
+						<g:sortableColumn property="number" title="${message(code: 'opening.number.label', default: 'Number')}" />
 					
 						<g:sortableColumn property="band" title="${message(code: 'opening.band.label', default: 'Band')}" />
+											
+						<g:sortableColumn property="song" title="${message(code: 'opening.song.label', default: 'Song')}" />
 					
 						<g:sortableColumn property="webAddress" title="${message(code: 'opening.webAddress.label', default: 'Web Address')}" />
 					
-						<g:sortableColumn property="song" title="${message(code: 'opening.song.label', default: 'Song')}" />
-					
 						<g:sortableColumn property="thumbnail" title="${message(code: 'opening.thumbnail.label', default: 'Thumbnail')}" />
-					
-						<g:sortableColumn property="number" title="${message(code: 'opening.number.label', default: 'Number')}" />
 					
 					</tr>
 				</thead>
@@ -42,7 +42,9 @@
 				<g:each in="${openingInstanceList}" status="i" var="openingInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${openingInstance.id}">${fieldValue(bean: openingInstance, field: "anime")}</g:link></td>
+						<td><g:link action="show" controller="anime" id="${openingInstance.anime.id}">${fieldValue(bean: openingInstance, field: "anime")}</g:link></td>
+											
+						<td><g:link action="show" id="${openingInstance.id}">${fieldValue(bean: openingInstance, field: "number")}</g:link></td>					
 					
 						<td>${fieldValue(bean: openingInstance, field: "band")}</td>
 					
@@ -51,8 +53,6 @@
 						<td>${fieldValue(bean: openingInstance, field: "song")}</td>
 					
 						<td>${fieldValue(bean: openingInstance, field: "thumbnail")}</td>
-					
-						<td>${fieldValue(bean: openingInstance, field: "number")}</td>
 					
 					</tr>
 				</g:each>

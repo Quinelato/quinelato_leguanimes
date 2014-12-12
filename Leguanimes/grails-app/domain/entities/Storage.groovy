@@ -17,4 +17,8 @@ class Storage extends BaseEntity{
 		burnDate nullable:true, blank:true
 		number nullable:true, blank:true, min:1
     }
+	
+	String toString(){
+		"${name}: ${number}"
+	}
 }

@@ -41,15 +41,15 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${genderInstance?.active}">
+				<g:if test="${genderInstance?.createdBy}">
 				<li class="fieldcontain">
-					<span id="active-label" class="property-label"><g:message code="gender.active.label" default="Active" /></span>
+					<span id="createdBy-label" class="property-label"><g:message code="gender.createdBy.label" default="Created By" /></span>
 					
-						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${genderInstance?.active}" /></span>
+						<span class="property-value" aria-labelledby="createdBy-label"><g:link controller="user" action="show" id="${genderInstance?.createdBy?.id}">${genderInstance?.createdBy?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
-			
+				
 				<g:if test="${genderInstance?.createdAt}">
 				<li class="fieldcontain">
 					<span id="createdAt-label" class="property-label"><g:message code="gender.createdAt.label" default="Created At" /></span>
@@ -59,20 +59,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${genderInstance?.createdby}">
-				<li class="fieldcontain">
-					<span id="createdby-label" class="property-label"><g:message code="gender.createdby.label" default="Createdby" /></span>
-					
-						<span class="property-value" aria-labelledby="createdby-label"><g:link controller="user" action="show" id="${genderInstance?.createdby?.id}">${genderInstance?.createdby?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${genderInstance?.removedAt}">
 				<li class="fieldcontain">
 					<span id="removedAt-label" class="property-label"><g:message code="gender.removedAt.label" default="Removed At" /></span>
 					
 						<span class="property-value" aria-labelledby="removedAt-label"><g:formatDate date="${genderInstance?.removedAt}" /></span>
+					
+				</li>
+				</g:if>
+				
+				<g:if test="${genderInstance?.active}">
+				<li class="fieldcontain">
+					<span id="active-label" class="property-label"><g:message code="gender.active.label" default="Active" /></span>
+					
+						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${genderInstance?.active}" /></span>
 					
 				</li>
 				</g:if>

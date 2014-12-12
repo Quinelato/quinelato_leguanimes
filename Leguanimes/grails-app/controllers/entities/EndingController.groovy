@@ -34,6 +34,15 @@ class EndingController {
             respond endingInstance.errors, view:'create'
             return
         }
+		
+		endingInstance.createdAt = new Date()
+		endingInstance.createdBy = User.get(1)
+		
+		if(!endingInstance.active){
+			endingInstance.removedAt = new Date()
+		}else{
+			endingInstance.removedAt = null
+		}
 
         endingInstance.save flush:true
 

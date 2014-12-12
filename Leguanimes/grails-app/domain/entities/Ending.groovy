@@ -21,4 +21,8 @@ class Ending extends BaseEntity {
 		thumbnail nullable:true, blank:true
 		number nullable:false, blank:false, min:1
     }
+	
+	String toString(){
+		"${number}. ${band}: ${song}"
+	}
 }

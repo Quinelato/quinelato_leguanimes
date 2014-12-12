@@ -22,6 +22,15 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list anime">
+						
+				<g:if test="${animeInstance?.title}">
+				<li class="fieldcontain">
+					<span id="title-label" class="property-label"><g:message code="anime.title.label" default="Title" /></span>
+					
+						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${animeInstance}" field="title"/></span>
+					
+				</li>
+				</g:if>
 			
 				<g:if test="${animeInstance?.startDate}">
 				<li class="fieldcontain">
@@ -40,25 +49,7 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${animeInstance?.ageRating}">
-				<li class="fieldcontain">
-					<span id="ageRating-label" class="property-label"><g:message code="anime.ageRating.label" default="Age Rating" /></span>
-					
-						<span class="property-value" aria-labelledby="ageRating-label"><g:fieldValue bean="${animeInstance}" field="ageRating"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${animeInstance?.title}">
-				<li class="fieldcontain">
-					<span id="title-label" class="property-label"><g:message code="anime.title.label" default="Title" /></span>
-					
-						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${animeInstance}" field="title"/></span>
-					
-				</li>
-				</g:if>
-			
+							
 				<g:if test="${animeInstance?.exibition}">
 				<li class="fieldcontain">
 					<span id="exibition-label" class="property-label"><g:message code="anime.exibition.label" default="Exibition" /></span>
@@ -67,30 +58,34 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${animeInstance?.active}">
+							
+				<g:if test="${animeInstance?.ageRating}">
 				<li class="fieldcontain">
-					<span id="active-label" class="property-label"><g:message code="anime.active.label" default="Active" /></span>
+					<span id="ageRating-label" class="property-label"><g:message code="anime.ageRating.label" default="Age Rating" /></span>
 					
-						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${animeInstance?.active}" /></span>
+						<span class="property-value" aria-labelledby="ageRating-label"><g:fieldValue bean="${animeInstance}" field="ageRating"/></span>
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${animeInstance?.createdAt}">
+							
+				<g:if test="${animeInstance?.genders}">
 				<li class="fieldcontain">
-					<span id="createdAt-label" class="property-label"><g:message code="anime.createdAt.label" default="Created At" /></span>
+					<span id="genders-label" class="property-label"><g:message code="anime.genders.label" default="Genders" /></span>
 					
-						<span class="property-value" aria-labelledby="createdAt-label"><g:formatDate date="${animeInstance?.createdAt}" /></span>
+						<g:each in="${animeInstance.genders}" var="g">
+						<span class="property-value" aria-labelledby="genders-label"><g:link controller="gender" action="show" id="${g.id}">${g?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${animeInstance?.createdby}">
+							
+				<g:if test="${animeInstance?.openings}">
 				<li class="fieldcontain">
-					<span id="createdby-label" class="property-label"><g:message code="anime.createdby.label" default="Createdby" /></span>
+					<span id="openings-label" class="property-label"><g:message code="anime.openings.label" default="Openings" /></span>
 					
-						<span class="property-value" aria-labelledby="createdby-label"><g:link controller="user" action="show" id="${animeInstance?.createdby?.id}">${animeInstance?.createdby?.encodeAsHTML()}</g:link></span>
+						<g:each in="${animeInstance.openings}" var="o">
+						<span class="property-value" aria-labelledby="openings-label"><g:link controller="opening" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
@@ -127,34 +122,38 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${animeInstance?.genders}">
+								<g:if test="${animeInstance?.createdBy}">
 				<li class="fieldcontain">
-					<span id="genders-label" class="property-label"><g:message code="anime.genders.label" default="Genders" /></span>
+					<span id="createdBy-label" class="property-label"><g:message code="anime.createdBy.label" default="Created By" /></span>
 					
-						<g:each in="${animeInstance.genders}" var="g">
-						<span class="property-value" aria-labelledby="genders-label"><g:link controller="gender" action="show" id="${g.id}">${g?.encodeAsHTML()}</g:link></span>
-						</g:each>
+						<span class="property-value" aria-labelledby="createdBy-label"><g:link controller="user" action="show" id="${animeInstance?.createdBy?.id}">${animeInstance?.createdBy?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${animeInstance?.openings}">
+				<g:if test="${animeInstance?.createdAt}">
 				<li class="fieldcontain">
-					<span id="openings-label" class="property-label"><g:message code="anime.openings.label" default="Openings" /></span>
+					<span id="createdAt-label" class="property-label"><g:message code="anime.createdAt.label" default="Created At" /></span>
 					
-						<g:each in="${animeInstance.openings}" var="o">
-						<span class="property-value" aria-labelledby="openings-label"><g:link controller="opening" action="show" id="${o.id}">${o?.encodeAsHTML()}</g:link></span>
-						</g:each>
+						<span class="property-value" aria-labelledby="createdAt-label"><g:formatDate date="${animeInstance?.createdAt}" /></span>
 					
 				</li>
 				</g:if>
-			
+							
 				<g:if test="${animeInstance?.removedAt}">
 				<li class="fieldcontain">
 					<span id="removedAt-label" class="property-label"><g:message code="anime.removedAt.label" default="Removed At" /></span>
 					
 						<span class="property-value" aria-labelledby="removedAt-label"><g:formatDate date="${animeInstance?.removedAt}" /></span>
+					
+				</li>
+				</g:if>
+							
+				<g:if test="${animeInstance?.active}">
+				<li class="fieldcontain">
+					<span id="active-label" class="property-label"><g:message code="anime.active.label" default="Active" /></span>
+					
+						<span class="property-value" aria-labelledby="active-label"><g:formatBoolean boolean="${animeInstance?.active}" /></span>
 					
 				</li>
 				</g:if>

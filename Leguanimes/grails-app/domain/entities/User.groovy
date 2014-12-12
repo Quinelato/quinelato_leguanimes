@@ -1,8 +1,8 @@
 package entities
 
-import Base.BaseEntity
+import java.util.Date;
 
-class User extends BaseEntity{
+class User{
 
     String email
 	String firstname
@@ -11,6 +11,9 @@ class User extends BaseEntity{
 	String avatar
 	String username
 	String password
+	Date createdAt = new Date()
+	Date removedAt = null
+	boolean active = true
 
     static constraints = {
 		email nullable:false, blank:false, email:true
@@ -20,5 +23,12 @@ class User extends BaseEntity{
 		avatar nullable:true, blank:true
 		username nullable:false, blank:false, size:6..20
 		password nullable:false, blank:false, size:6..20, password:true
+		createdAt nullable:true, blank:true
+		removedAt nullable:true, blank:true
+		active nullable:false, blank:false
     }
+	
+	String toString(){
+		"${firstname} ${lastname}"
+	}
 }

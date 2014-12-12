@@ -11,6 +11,24 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: episodeInstance, field: 'number', 'error')} required">
+	<label for="number">
+		<g:message code="episode.number.label" default="Number" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="number" type="number" min="1" value="${episodeInstance.number}" required=""/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: episodeInstance, field: 'title', 'error')} required">
+	<label for="title">
+		<g:message code="episode.title.label" default="Title" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="title" required="" value="${episodeInstance?.title}"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: episodeInstance, field: 'duration', 'error')} required">
 	<label for="duration">
 		<g:message code="episode.duration.label" default="Duration" />
@@ -29,30 +47,21 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: episodeInstance, field: 'heigh', 'error')} required">
-	<label for="heigh">
-		<g:message code="episode.heigh.label" default="Heigh" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="heigh" type="number" min="1" value="${episodeInstance.heigh}" required=""/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: episodeInstance, field: 'number', 'error')} required">
-	<label for="number">
-		<g:message code="episode.number.label" default="Number" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="number" type="number" min="1" value="${episodeInstance.number}" required=""/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: episodeInstance, field: 'width', 'error')} required">
 	<label for="width">
 		<g:message code="episode.width.label" default="Width" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field name="width" type="number" min="1" value="${episodeInstance.width}" required=""/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: episodeInstance, field: 'heigh', 'error')} required">
+	<label for="heigh">
+		<g:message code="episode.heigh.label" default="Heigh" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="heigh" type="number" min="1" value="${episodeInstance.heigh}" required=""/>
 
 </div>
 
@@ -74,15 +83,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: episodeInstance, field: 'title', 'error')} required">
-	<label for="title">
-		<g:message code="episode.title.label" default="Title" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="title" required="" value="${episodeInstance?.title}"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: episodeInstance, field: 'codec', 'error')} ">
 	<label for="codec">
 		<g:message code="episode.codec.label" default="Codec" />
@@ -98,33 +98,6 @@
 		
 	</label>
 	<g:checkBox name="active" value="${episodeInstance?.active}" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: episodeInstance, field: 'createdAt', 'error')} required">
-	<label for="createdAt">
-		<g:message code="episode.createdAt.label" default="Created At" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="createdAt" precision="day"  value="${episodeInstance?.createdAt}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: episodeInstance, field: 'createdby', 'error')} required">
-	<label for="createdby">
-		<g:message code="episode.createdby.label" default="Createdby" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="createdby" name="createdby.id" from="${entities.User.list()}" optionKey="id" required="" value="${episodeInstance?.createdby?.id}" class="many-to-one"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: episodeInstance, field: 'removedAt', 'error')} required">
-	<label for="removedAt">
-		<g:message code="episode.removedAt.label" default="Removed At" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="removedAt" precision="day"  value="${episodeInstance?.removedAt}"  />
 
 </div>
 

@@ -27,14 +27,16 @@
 						<g:sortableColumn property="name" title="${message(code: 'storage.name.label', default: 'Name')}" />
 					
 						<g:sortableColumn property="description" title="${message(code: 'storage.description.label', default: 'Description')}" />
-					
-						<g:sortableColumn property="burnDate" title="${message(code: 'storage.burnDate.label', default: 'Burn Date')}" />
-					
+											
 						<g:sortableColumn property="number" title="${message(code: 'storage.number.label', default: 'Number')}" />
 					
-						<g:sortableColumn property="active" title="${message(code: 'storage.active.label', default: 'Active')}" />
+						<g:sortableColumn property="burnDate" title="${message(code: 'storage.burnDate.label', default: 'Burn Date')}" />
+											
+						<g:sortableColumn property="createdBy" title="${message(code: 'storage.createdBy.label', default: 'Created By')}" />
 					
 						<g:sortableColumn property="createdAt" title="${message(code: 'storage.createdAt.label', default: 'Created At')}" />
+											
+						<g:sortableColumn property="active" title="${message(code: 'storage.active.label', default: 'Active')}" />
 					
 					</tr>
 				</thead>
@@ -45,14 +47,16 @@
 						<td><g:link action="show" id="${storageInstance.id}">${fieldValue(bean: storageInstance, field: "name")}</g:link></td>
 					
 						<td>${fieldValue(bean: storageInstance, field: "description")}</td>
-					
-						<td><g:formatDate date="${storageInstance.burnDate}" /></td>
-					
+											
 						<td>${fieldValue(bean: storageInstance, field: "number")}</td>
 					
-						<td><g:formatBoolean boolean="${storageInstance.active}" /></td>
+						<td><g:formatDate date="${storageInstance.burnDate}" /></td>
+											
+						<td>${fieldValue(bean: storageInstance, field: "createdBy")}</td>
 					
 						<td><g:formatDate date="${storageInstance.createdAt}" /></td>
+											
+						<td><g:formatBoolean boolean="${storageInstance.active}" /></td>
 					
 					</tr>
 				</g:each>

@@ -1,6 +1,23 @@
 <%@ page import="entities.User" %>
 
 
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
+	<label for="username">
+		<g:message code="user.username.label" default="Username" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="username" maxlength="20" required="" value="${userInstance?.username}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
+	<label for="password">
+		<g:message code="user.password.label" default="Password" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field type="password" name="password" maxlength="20" required="" value="${userInstance?.password}"/>
+
+</div>
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'email', 'error')} required">
 	<label for="email">
@@ -47,57 +64,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
-	<label for="username">
-		<g:message code="user.username.label" default="Username" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="username" maxlength="20" required="" value="${userInstance?.username}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
-	<label for="password">
-		<g:message code="user.password.label" default="Password" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field type="password" name="password" maxlength="20" required="" value="${userInstance?.password}"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'active', 'error')} ">
 	<label for="active">
 		<g:message code="user.active.label" default="Active" />
 		
 	</label>
 	<g:checkBox name="active" value="${userInstance?.active}" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'createdAt', 'error')} required">
-	<label for="createdAt">
-		<g:message code="user.createdAt.label" default="Created At" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="createdAt" precision="day"  value="${userInstance?.createdAt}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'createdby', 'error')} required">
-	<label for="createdby">
-		<g:message code="user.createdby.label" default="Createdby" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="createdby" name="createdby.id" from="${entities.User.list()}" optionKey="id" required="" value="${userInstance?.createdby?.id}" class="many-to-one"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'removedAt', 'error')} required">
-	<label for="removedAt">
-		<g:message code="user.removedAt.label" default="Removed At" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="removedAt" precision="day"  value="${userInstance?.removedAt}"  />
 
 </div>
 
