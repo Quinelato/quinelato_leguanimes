@@ -38,13 +38,6 @@ class GenderController {
 		genderInstance.createdAt = new Date()
 		genderInstance.createdBy = User.get(1)
 
-		println genderInstance.active
-		if(!genderInstance.active){
-			genderInstance.removedAt = new Date()
-		}else{
-			genderInstance.removedAt = null
-		}
-
 		genderInstance.save flush:true
 
 		request.withFormat {

@@ -15,4 +15,12 @@ class Gender extends BaseEntity{
 	String toString(){
 		"${name}"
 	}
+	
+	def beforeInsert() {
+		if (!active){
+			removedAt = new Date()
+		} else{
+			removedAt = null
+		}
+	}
 }

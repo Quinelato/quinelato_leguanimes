@@ -9,7 +9,7 @@ abstract class BaseEntity {
 	Date removedAt = null
 	boolean active = true
 	User createdBy
-	
+
 	static constraints = {
 		createdAt nullable:true, blank:true
 		removedAt nullable:true, blank:true
