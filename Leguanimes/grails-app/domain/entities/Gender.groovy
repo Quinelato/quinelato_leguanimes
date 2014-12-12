@@ -17,10 +17,18 @@ class Gender extends BaseEntity{
 	}
 	
 	def beforeInsert() {
-		if (!active){
+		if (active == null || !active){
 			removedAt = new Date()
 		} else{
-			removedAt = null
+			removedAt = Date.parse("dd/MM/yyyy","10/10/1984")
+		}
+	}
+	
+	def beforeUpdatet() {
+		if (active == null || !active){
+			removedAt = new Date()
+		} else{
+			removedAt = Date.parse("dd/MM/yyyy","12/12/1999")
 		}
 	}
 }
