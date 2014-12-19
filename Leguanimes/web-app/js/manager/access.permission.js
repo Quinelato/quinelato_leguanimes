@@ -1,3 +1,6 @@
 $(document).ready(function(){
-	alert('hi');
+	
+	if($('#hd_user').val() == ''){
+		$('#nav_create_user').hide();
+	}
 });

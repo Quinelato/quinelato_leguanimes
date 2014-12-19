@@ -10,7 +10,7 @@ class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 	
-	def beforeInterceptor = [action: this.&auth, except: 'create']
+	def beforeInterceptor = [action: this.&auth, except: ['create','save']]
 	
 	// defined with private scope, so it's not considered an action
 	private auth() {
