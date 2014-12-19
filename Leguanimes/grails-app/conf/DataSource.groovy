@@ -14,7 +14,7 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create" // one of 'create', 'create-drop','update'
+            dbCreate = "create-drop" // one of 'create', 'create-drop','update'
             url = "jdbc:mysql://localhost/quinelato.leguanimes.alpha?useUnicode=yes&characterEncoding=UTF-8"
             //username = "dev"
             //password = "devpw"

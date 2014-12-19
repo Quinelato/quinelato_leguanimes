@@ -28,6 +28,7 @@ class User{
 		createdAt nullable:true, blank:true
 		removedAt nullable:true, blank:true
 		active nullable:false, blank:false
+		role nullable:true
     }
 	
 	String toString(){
