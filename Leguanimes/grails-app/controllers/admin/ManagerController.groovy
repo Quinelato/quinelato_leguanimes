@@ -10,11 +10,7 @@ class ManagerController {
         }
     }
 
-    def login() {
-		if(User.findAll().isEmpty()){
-			redirect action:"create", controller:"user"
-		}
-	}
+    def login() {}
 
     def authenticate = {
 

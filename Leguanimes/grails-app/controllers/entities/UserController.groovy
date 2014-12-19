@@ -9,6 +9,16 @@ import grails.transaction.Transactional
 class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	
+	def beforeInterceptor = [action: this.&auth, except: 'create']
+	
+	// defined with private scope, so it's not considered an action
+	private auth() {
+		if (!session.user) {
+			redirect(action: 'login', controller:'manager')
+			return false
+		}
+	}
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
