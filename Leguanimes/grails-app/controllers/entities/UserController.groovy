@@ -1,8 +1,8 @@
 package entities
 
 
-
 import static org.springframework.http.HttpStatus.*
+import Helpers.FileUploadHelper
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
@@ -44,8 +44,17 @@ class UserController {
             respond userInstance.errors, view:'create'
             return
         }
-
+		
+		//userInstance.avatar = params.avatar.bytes.encodeBase64().toString()
+		
+		def avatarImage = request.getFile('avatarImage')
+		if(!avatarImage.isEmpty()){
+			def fu = new FileUploadHelper()
+			userInstance.avatar = fu.uploadFile(avatarImage, "teste.jpg", "avatar")
+		}
+		
         userInstance.save flush:true
+		session.user = userInstance
 
         request.withFormat {
             form multipartForm {

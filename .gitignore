@@ -28,3 +28,4 @@ Leguanimes/web-app/plugins
 
 # "temporary" build files
 /Leguanimes/target
+*.DS_Store

@@ -57,6 +57,5 @@
 		<g:message code="user.avatar.label" default="Avatar" />
 		
 	</label>
-	<g:textField name="avatar" value="${userInstance?.avatar}"/>
-
+	<input type="file" id="avatarImage" name="avatarImage" />
 </div>
