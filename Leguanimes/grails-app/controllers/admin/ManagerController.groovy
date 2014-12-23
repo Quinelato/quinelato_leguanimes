@@ -17,25 +17,28 @@ class ManagerController {
         if(validLogin(params.username, params.password)) {
             def password = params.password.bytes.encodeBase64().toString()
 
-            def user = User.findByUsernameAndPassword(params.username, password)
+            def user = User.findByPasswordAndUsername(password, params.username)
             if(user){
-                session.user = user
-                flash.message = "OlÃ¡ ${user.toString()}!"
 
-                if(user.role.type == "Administrador")
+                if(user.role.type == "Administrator"){
+					session.user = user
+					flash.message = "Olá! ${user.toString()}!"
                     redirect action:"index", controller:"gender"
-                else
+                }
+                else{
+					flash.message = "Desculpe, você não possui permissão para acessar."
                     redirect(uri:"/")
+                }
             }
             else{
-                flash.message = "Desculpe, email ou senha incorretos. Por favor, tente novamente."
+                flash.message = "Desculpe, usuário ou senha incorretos. Por favor, tente novamente."
                 redirect(action:"login")
             }
         }
     }
 
     def validLogin(String username, String password){
-        if(username != null && username != "" && password != null & password != "" ){
+        if(username == null || username == "" || password == null || password == "" ){
             return false
         }
 
@@ -43,7 +46,7 @@ class ManagerController {
     }
 
     def logout = {
-        flash.message = "Goodbye ${session.user.toString()}"
+        flash.message = "Até Logo, ${session.user.toString()}!"
         session.user = null
         redirect(action:"login")
     }

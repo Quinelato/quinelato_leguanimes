@@ -74,7 +74,7 @@ a {
 	font-size: 14px;
 }
 
-a:hover{
+a:hover {
 	color: #fff
 }
 </style>
@@ -83,6 +83,11 @@ a:hover{
 	<div class="loginpanel">
 		<div class="loginpanelinner">
 			<div class="login-body">
+				<g:if test="${flash.message}">
+					<div class="message" role="status">
+						${flash.message}
+					</div>
+				</g:if>
 				<g:form action="authenticate">
 					<fieldset>
 						<div

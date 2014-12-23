@@ -2,7 +2,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
 	<label for="username">
-		<g:message code="user.username.label" default="Username" />
+		<g:message code="user.username.label" default="Login" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="username" maxlength="20" required="" value="${userInstance?.username}"/>
