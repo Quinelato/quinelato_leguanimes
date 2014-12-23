@@ -22,16 +22,16 @@ class ManagerController {
 
                 if(user.role.type == "Administrator"){
 					session.user = user
-					flash.message = "Olá! ${user.toString()}!"
+					flash.message = message(code: "login.login", args:[user.toString()])
                     redirect action:"index", controller:"gender"
                 }
                 else{
-					flash.message = "Desculpe, você não possui permissão para acessar."
+					flash.message = message(code: "login.error.not_access")
                     redirect(uri:"/")
                 }
             }
             else{
-                flash.message = "Desculpe, usuário ou senha incorretos. Por favor, tente novamente."
+                flash.message = message(code: "login.error")
                 redirect(action:"login")
             }
         }
@@ -46,7 +46,7 @@ class ManagerController {
     }
 
     def logout = {
-        flash.message = "Até Logo, ${session.user.toString()}!"
+        flash.message = message(code: "login.logout", args:[session.user.toString()])
         session.user = null
         redirect(action:"login")
     }

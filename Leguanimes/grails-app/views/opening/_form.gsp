@@ -1,67 +1,11 @@
 <%@ page import="entities.Opening" %>
 
-
-
-<div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'removedAt', 'error')} ">
-	<label for="removedAt">
-		<g:message code="opening.removedAt.label" default="Removed At" />
-		
-	</label>
-	<g:datePicker name="removedAt" precision="day"  value="${openingInstance?.removedAt}" default="none" noSelection="['': '']" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'createdBy', 'error')} ">
-	<label for="createdBy">
-		<g:message code="opening.createdBy.label" default="Created By" />
-		
-	</label>
-	<g:select id="createdBy" name="createdBy.id" from="${entities.User.list()}" optionKey="id" value="${openingInstance?.createdBy?.id}" class="many-to-one" noSelection="['null': '']"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'anime', 'error')} required">
 	<label for="anime">
 		<g:message code="opening.anime.label" default="Anime" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="anime" name="anime.id" from="${entities.Anime.list()}" optionKey="id" required="" value="${openingInstance?.anime?.id}" class="many-to-one"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'band', 'error')} required">
-	<label for="band">
-		<g:message code="opening.band.label" default="Band" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="band" required="" value="${openingInstance?.band}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'webAddress', 'error')} required">
-	<label for="webAddress">
-		<g:message code="opening.webAddress.label" default="Web Address" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="webAddress" required="" value="${openingInstance?.webAddress}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'song', 'error')} required">
-	<label for="song">
-		<g:message code="opening.song.label" default="Song" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="song" required="" value="${openingInstance?.song}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'thumbnail', 'error')} ">
-	<label for="thumbnail">
-		<g:message code="opening.thumbnail.label" default="Thumbnail" />
-		
-	</label>
-	<g:textField name="thumbnail" value="${openingInstance?.thumbnail}"/>
 
 </div>
 
@@ -74,21 +18,39 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'active', 'error')} ">
-	<label for="active">
-		<g:message code="opening.active.label" default="Active" />
-		
+<div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'band', 'error')} required">
+	<label for="band">
+		<g:message code="opening.band.label" default="Band" />
+		<span class="required-indicator">*</span>
 	</label>
-	<g:checkBox name="active" value="${openingInstance?.active}" />
+	<g:textField name="band" required="" value="${openingInstance?.band}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'createdAt', 'error')} required">
-	<label for="createdAt">
-		<g:message code="opening.createdAt.label" default="Created At" />
+<div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'song', 'error')} required">
+	<label for="song">
+		<g:message code="opening.song.label" default="Song" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="createdAt" precision="day"  value="${openingInstance?.createdAt}"  />
+	<g:textField name="song" required="" value="${openingInstance?.song}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'webAddress', 'error')} required">
+	<label for="webAddress">
+		<g:message code="opening.webAddress.label" default="Web Address" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="webAddress" required="" value="${openingInstance?.webAddress}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: openingInstance, field: 'thumbnail', 'error')} ">
+	<label for="thumbnail">
+		<g:message code="opening.thumbnail.label" default="Thumbnail" />
+		
+	</label>
+	<g:textField name="thumbnail" value="${openingInstance?.thumbnail}"/>
 
 </div>
 
